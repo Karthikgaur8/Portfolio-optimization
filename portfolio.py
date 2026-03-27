@@ -13,8 +13,8 @@ import matplotlib.pyplot as plt
 from fredapi import Fred
 
 # Define stock tickers and the time range for historical data
-tickers = ['SPY', 'BND', 'GLD', 'QQQ', 'VTI', 'AAPL', 'GOOG', 'MSFT', 'TSLA']
-start_date = datetime.today() - timedelta(days=10*365)
+tickers = ['SPY', 'BND', 'GLD', 'QQQ', 'VTI', 'AAPL', 'GOOG', 'MSFT', 'TSLA','AMZN','NVDA','META']
+start_date = datetime.today() - timedelta(days=7*365)
 end_date = datetime.today()
 print(f"Start date: {start_date}")
 
