@@ -1,0 +1,22 @@
+# KUBER — Pre-built Ticker Universes
+
+universes:
+  tech_mega:
+    name: "Mega-Cap Tech"
+    tickers: [AAPL, MSFT, GOOG, AMZN, NVDA, META, TSLA]
+    description: "US mega-cap technology stocks"
+
+  balanced_etf:
+    name: "Balanced ETF"
+    tickers: [SPY, QQQ, BND, GLD, VTI, IWM, EFA, EEM, TLT, HYG]
+    description: "Diversified ETF universe spanning equities, bonds, gold, international"
+
+  sp500_sectors:
+    name: "S&P 500 Sector ETFs"
+    tickers: [XLK, XLF, XLV, XLE, XLI, XLY, XLP, XLU, XLRE, XLC, XLB]
+    description: "SPDR sector ETFs representing all 11 GICS sectors"
+
+  original_legacy:
+    name: "Legacy (2022 Script)"
+    tickers: [SPY, BND, GLD, QQQ, VTI, AAPL, GOOG, MSFT, TSLA, AMZN, NVDA, META]
+    description: "Original hardcoded universe — kept as benchmark reference"
