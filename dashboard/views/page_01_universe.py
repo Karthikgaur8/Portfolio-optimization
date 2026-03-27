@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import sys
-from datetime import date
 from pathlib import Path
 
 import pandas as pd
@@ -14,55 +13,59 @@ if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
 from kuber.data.price_loader import PriceLoader
-from kuber.data.universe import list_universes, load_universe
 from dashboard.components.charts import correlation_heatmap
 
 
-@st.cache_data(show_spinner="Loading price data...")
+@st.cache_data(ttl=3600, show_spinner="Loading price data...")
 def _load_prices(tickers: tuple, start: str, end: str) -> pd.DataFrame:
     loader = PriceLoader()
     return loader.load(list(tickers), start=start, end=end)
 
 
 def render() -> None:
-    st.header("📊 Universe & Data")
+    st.header("Universe & Data")
 
-    # Controls
-    col_a, col_b, col_c = st.columns([2, 1, 1])
-    universes = list_universes()
-    with col_a:
-        uname = st.selectbox("Select Universe", universes,
-                              index=universes.index("balanced_etf") if "balanced_etf" in universes else 0,
-                              key="p1_universe")
-    universe = load_universe(uname)
-    tickers = universe["tickers"]
+    st.markdown(
+        '<div style="background:#f0f2f6; padding:0.8rem 1rem; border-radius:6px; margin-bottom:1rem;">'
+        "Select your investment universe — the pool of assets KUBER will allocate across. "
+        "Different universes suit different strategies: <b>balanced_etf</b> for diversified portfolios, "
+        "<b>tech_mega</b> for sector-focused analysis, <b>sp500_sectors</b> for rotation strategies."
+        "</div>",
+        unsafe_allow_html=True,
+    )
 
-    with col_b:
-        start = st.date_input("Start", value=date(2020, 1, 1), key="p1_start")
-    with col_c:
-        end = st.date_input("End", value=date(2025, 1, 1), key="p1_end")
+    tickers = st.session_state.get("tickers")
+    uname = st.session_state.get("universe_name", "balanced_etf")
+    start = st.session_state.get("start_date", "2018-01-01")
+    end = st.session_state.get("end_date", "2025-01-01")
+    desc = st.session_state.get("universe_desc", "")
 
-    st.info(f"**{universe['name']}** — {universe['description']}")
+    if not tickers:
+        st.info("Select a universe and click **Load Data** in the sidebar.")
+        return
+
+    st.info(f"**{uname}** — {desc}  |  {len(tickers)} assets")
     st.code(", ".join(tickers), language=None)
 
-    # Persist selections
-    st.session_state["tickers"] = tickers
-    st.session_state["universe_name"] = uname
-    st.session_state["start_date"] = start.strftime("%Y-%m-%d")
-    st.session_state["end_date"] = end.strftime("%Y-%m-%d")
+    # Load data (cached)
+    with st.spinner("Fetching price data..."):
+        prices = _load_prices(tuple(tickers), start, end)
 
-    # Load data
-    prices = _load_prices(tuple(tickers), start.strftime("%Y-%m-%d"), end.strftime("%Y-%m-%d"))
     if prices.empty:
         st.error("No price data returned. Check tickers / date range.")
         return
 
     st.session_state["prices"] = prices
+    st.session_state["_data_loaded"] = True
+
+    st.divider()
 
     # Normalised price chart
     st.subheader("Normalized Prices (base = 100)")
     norm = prices / prices.iloc[0] * 100
     st.line_chart(norm, use_container_width=True)
+
+    st.divider()
 
     # Data quality
     st.subheader("Data Quality")
@@ -75,6 +78,8 @@ def render() -> None:
         "Days": [prices[c].notna().sum() for c in prices.columns],
     })
     st.dataframe(quality, use_container_width=True, hide_index=True)
+
+    st.divider()
 
     # Correlation heatmap
     st.subheader("Correlation Matrix")

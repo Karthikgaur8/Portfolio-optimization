@@ -94,17 +94,34 @@ python scripts/generate_memo.py --universe balanced_etf --provider template
 
 ## Results
 
-> *Run backtests to populate this table with real numbers.*
+Walk-forward backtest on **balanced_etf** universe (SPY, QQQ, BND, GLD, VTI, IWM, EFA, EEM, TLT, HYG), monthly rebalance, 2020-01-01 to 2025-01-01, 10 bps transaction costs.
 
-| Strategy                  | Ann. Return | Ann. Vol | Sharpe | Sortino | Max DD  | Turnover |
-|---------------------------|-------------|----------|--------|---------|---------|----------|
-| Equal Weight              |    —        |   —      |  —     |  —      | —       |   —      |
-| 60/40                     |    —        |   —      |  —     |  —      | —       |   —      |
-| KUBER: Markowitz          |    —        |   —      |  —     |  —      | —       |   —      |
-| KUBER: Risk Parity        |    —        |   —      |  —     |  —      | —       |   —      |
-| KUBER: Black-Litterman    |    —        |   —      |  —     |  —      | —       |   —      |
-| KUBER: HRP                |    —        |   —      |  —     |  —      | —       |   —      |
-| KUBER: Regime-Aware (full)|    —        |   —      |  —     |  —      | —       |   —      |
+| Strategy                  | Ann. Return | Ann. Vol | Sharpe | Sortino | Max DD  |
+|---------------------------|-------------|----------|--------|---------|---------|
+| Equal Weight              | 9.54%       | 5.33%    | 1.79   | 3.11    | -4.46%  |
+| 60/40                     | 17.28%      | 10.95%   | 1.58   | 2.75    | -12.39% |
+| SPY Buy-and-Hold          | 29.10%      | 17.94%   | 1.62   | 2.83    | -20.70% |
+| KUBER: Markowitz + signals| 9.05%       | 9.44%    | 0.96   | 1.71    | -10.55% |
+| KUBER: Risk Parity        | 6.58%       | 3.88%    | 1.69   | 2.83    | -3.90%  |
+| KUBER: Black-Litterman    | 6.95%       | 3.95%    | 1.76   | 2.92    | -3.78%  |
+| KUBER: HRP                | 4.03%       | 3.31%    | 1.22   | 1.99    | -3.57%  |
+| KUBER: Regime-Aware (full)| 4.03%       | 3.31%    | 1.22   | 1.99    | -3.57%  |
+
+### Key Findings
+
+**The risk-managed strategies delivered what they promised: lower volatility and smaller drawdowns.**
+
+1. **SPY buy-and-hold dominated on raw returns** (29.1% annualized) but at the cost of 20.7% max drawdown. This period (2020-2025) was an unusually strong equity bull market post-COVID, so any equity-heavy strategy benefited massively from beta exposure.
+
+2. **Black-Litterman had the best risk-adjusted performance among KUBER strategies** (Sharpe 1.76, Sortino 2.92) with the smallest max drawdown (-3.78%). The signal-derived views added marginal value over pure Risk Parity.
+
+3. **Risk Parity delivered excellent risk control** (3.88% volatility, -3.90% max DD) with a strong Sharpe ratio of 1.69 — demonstrating that equal-risk-contribution allocation works well for a diversified ETF universe.
+
+4. **The Regime-Aware strategy tracked HRP** because without macro data (no FRED API key), the HMM regime detector had covariance estimation issues and frequently fell back to the "sideways" regime, which routes to HRP. With proper VIX data from FRED, regime switching would be more active.
+
+5. **Markowitz with signals had the worst Sharpe** (0.96) among KUBER strategies. Mean-variance optimization is notoriously sensitive to expected return estimates, and the signal-derived returns added noise. This is a well-known result in portfolio theory — estimation error in expected returns often hurts more than it helps.
+
+6. **The real value proposition of these strategies isn't beating SPY in a bull market** — it's surviving bear markets. Risk Parity's 3.90% max drawdown vs SPY's 20.70% means a risk-averse investor can stay invested through volatility without panic selling.
 
 ---
 
@@ -162,7 +179,7 @@ python scripts/generate_memo.py --universe balanced_etf --provider template
 │   ├── components/
 │   │   ├── charts.py            # Reusable Plotly chart functions
 │   │   └── sidebar.py           # Shared sidebar controls
-│   └── pages/
+│   └── views/
 │       ├── page_01_universe.py  # Universe & Data overview
 │       ├── page_02_signals.py   # Signals & Regime visualization
 │       ├── page_03_optimize.py  # Portfolio optimization
@@ -171,10 +188,13 @@ python scripts/generate_memo.py --universe balanced_etf --provider template
 │
 ├── scripts/
 │   ├── run_backtest.py          # CLI: full backtest pipeline
+│   ├── run_all_experiments.py   # CLI: run all 8 experiments
 │   └── generate_memo.py         # CLI: generate investment memo
 │
 ├── tests/                       # pytest test suite
 ├── config/                      # YAML configs + universe definitions
+├── results/                     # Backtest experiment results (JSON)
+├── docs/                        # Sample outputs + demo guide
 ├── legacy/
 │   └── original_optimizer.py    # The 2022 script — preserved as benchmark
 │

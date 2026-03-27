@@ -1,0 +1,66 @@
+{
+  "experiment": "sixty_forty_baseline",
+  "description": "60/40 baseline",
+  "metrics": {
+    "annualized_return": 0.17277224231842447,
+    "annualized_volatility": 0.10952251882655387,
+    "sharpe_ratio": 1.577504281033168,
+    "sortino_ratio": 2.753732318838568,
+    "max_drawdown": 0.12390939924473314,
+    "calmar_ratio": 1.3943433135139527,
+    "win_rate": 0.5455938697318008,
+    "tail_ratio": 1.1823817386920985
+  },
+  "all_metrics": {
+    "strategy": {
+      "annualized_return": 0.17277224231842447,
+      "annualized_volatility": 0.10952251882655387,
+      "sharpe_ratio": 1.577504281033168,
+      "sortino_ratio": 2.753732318838568,
+      "max_drawdown": 0.12390939924473314,
+      "calmar_ratio": 1.3943433135139527,
+      "win_rate": 0.5455938697318008,
+      "tail_ratio": 1.1823817386920985
+    },
+    "equal_weight": {
+      "annualized_return": 0.09539601163080491,
+      "annualized_volatility": 0.05333366600163443,
+      "sharpe_ratio": 1.7886640612306954,
+      "sortino_ratio": 3.1146973592546385,
+      "max_drawdown": 0.04462786564212506,
+      "calmar_ratio": 2.1375884832986247,
+      "win_rate": 0.5486590038314176,
+      "tail_ratio": 1.110991952262667
+    },
+    "spy_buy_hold": {
+      "annualized_return": 0.29095136236496566,
+      "annualized_volatility": 0.1793755586257845,
+      "sharpe_ratio": 1.6220234495378045,
+      "sortino_ratio": 2.8349086995438757,
+      "max_drawdown": 0.20703722509742373,
+      "calmar_ratio": 1.4053094182848287,
+      "win_rate": 0.5402298850574713,
+      "tail_ratio": 1.1879349749172228
+    },
+    "sixty_forty": {
+      "annualized_return": 0.17277224231842447,
+      "annualized_volatility": 0.10952251882655387,
+      "sharpe_ratio": 1.577504281033168,
+      "sortino_ratio": 2.753732318838568,
+      "max_drawdown": 0.12390939924473314,
+      "calmar_ratio": 1.3943433135139527,
+      "win_rate": 0.5455938697318008,
+      "tail_ratio": 1.1823817386920985
+    },
+    "legacy_script": {
+      "annualized_return": 0.11599728420092179,
+      "annualized_volatility": 0.07513623416025221,
+      "sharpe_ratio": 1.5438261645309537,
+      "sortino_ratio": 2.7243219760172876,
+      "max_drawdown": 0.06648994674373118,
+      "calmar_ratio": 1.744583803744109,
+      "win_rate": 0.5295019157088122,
+      "tail_ratio": 1.1440148240068035
+    }
+  }
+}

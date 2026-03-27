@@ -19,7 +19,16 @@ from kuber.explain.memo_generator import MemoGenerator
 
 
 def render() -> None:
-    st.header("📝 Investment Memo")
+    st.header("Investment Memo")
+
+    st.markdown(
+        '<div style="background:#f0f2f6; padding:0.8rem 1rem; border-radius:6px; margin-bottom:1rem;">'
+        "Generate an AI-powered investment memo explaining the current allocation in plain English — "
+        "covering regime assessment, position rationale, risk factors, and stress test results. "
+        "This is the <b>explainable AI</b> capstone."
+        "</div>",
+        unsafe_allow_html=True,
+    )
 
     result = st.session_state.get("backtest_result")
     prices = st.session_state.get("prices")
@@ -51,7 +60,7 @@ def render() -> None:
 
     col1, col2 = st.columns([1, 3])
     with col1:
-        generate = st.button("📄 Generate Memo", type="primary", key="p5_gen")
+        generate = st.button("Generate Memo", type="primary", key="p5_gen")
 
     if generate:
         with st.spinner("Generating investment memo..."):
@@ -65,12 +74,12 @@ def render() -> None:
     # Display memo
     memo = st.session_state.get("memo")
     if memo:
-        st.markdown("---")
+        st.divider()
         st.markdown(memo)
 
         # Download button
         st.download_button(
-            "⬇️ Download Memo (.md)",
+            "Download Memo (.md)",
             data=memo,
             file_name="kuber_investment_memo.md",
             mime="text/markdown",
@@ -79,17 +88,17 @@ def render() -> None:
     # Risk alert
     risk_alert = st.session_state.get("risk_alert")
     if risk_alert:
-        st.markdown("---")
+        st.divider()
         st.warning(risk_alert)
 
     # Scenario analysis
     scenario_results = st.session_state.get("scenario_results_memo")
     if scenario_results:
-        st.markdown("---")
+        st.divider()
         st.subheader("Scenario Analysis Details")
 
         for key, r in scenario_results.items():
-            with st.expander(f"📊 {r.name} ({r.start} → {r.end})"):
+            with st.expander(f"{r.name} ({r.start} -> {r.end})"):
                 cols = st.columns(4)
                 cols[0].metric("Portfolio Return", f"{r.portfolio_return:.1%}")
                 cols[1].metric("Max Drawdown", f"{-r.max_drawdown:.1%}")
@@ -109,7 +118,6 @@ def _generate_memo(weights, result, prices, provider):
     # Attribution
     attribution_df = st.session_state.get("attribution")
     if attribution_df is None:
-        # Build a simple one
         from kuber.signals.momentum import TSMOMSignal
         from kuber.signals.mean_reversion import RSISignal
         from kuber.signals.volatility import RealizedVolSignal

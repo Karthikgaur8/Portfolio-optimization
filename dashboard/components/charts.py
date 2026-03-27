@@ -8,8 +8,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-# Shared colour palette
+# Shared colour palette and font
 COLORS = px.colors.qualitative.Set2
+CHART_FONT = dict(family="Inter, sans-serif")
 
 
 def equity_curve_chart(returns_dict: dict[str, pd.Series]) -> go.Figure:
@@ -35,6 +36,7 @@ def equity_curve_chart(returns_dict: dict[str, pd.Series]) -> go.Figure:
         hovermode="x unified",
         template="plotly_white",
         legend=dict(orientation="h", yanchor="bottom", y=1.02),
+        font=CHART_FONT,
     )
     return fig
 
@@ -60,6 +62,7 @@ def drawdown_chart(returns: pd.Series, title: str = "Drawdown") -> go.Figure:
         yaxis_tickformat=".0%",
         template="plotly_white",
         hovermode="x unified",
+        font=CHART_FONT,
     )
     return fig
 
@@ -82,6 +85,7 @@ def weights_area_chart(weights_df: pd.DataFrame) -> go.Figure:
         template="plotly_white",
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02),
+        font=CHART_FONT,
     )
     return fig
 
@@ -102,6 +106,7 @@ def correlation_heatmap(corr_matrix: pd.DataFrame) -> go.Figure:
         title="Correlation Matrix",
         template="plotly_white",
         width=600, height=500,
+        font=CHART_FONT,
     )
     return fig
 
@@ -132,6 +137,7 @@ def monthly_returns_heatmap(returns: pd.Series) -> go.Figure:
         title="Monthly Returns Heatmap",
         template="plotly_white",
         yaxis=dict(autorange="reversed"),
+        font=CHART_FONT,
     )
     return fig
 
@@ -160,6 +166,7 @@ def rolling_sharpe_chart(
         yaxis_title="Sharpe Ratio",
         template="plotly_white",
         hovermode="x unified",
+        font=CHART_FONT,
     )
     return fig
 
@@ -225,6 +232,7 @@ def regime_overlay_chart(
         yaxis_title="Price",
         template="plotly_white",
         hovermode="x unified",
+        font=CHART_FONT,
     )
     return fig
 
@@ -255,6 +263,7 @@ def signal_dashboard(signal_dict: dict[str, pd.DataFrame]) -> go.Figure:
         template="plotly_white",
         title="Signal Dashboard",
         hovermode="x unified",
+        font=CHART_FONT,
     )
     return fig
 
@@ -276,6 +285,7 @@ def weights_bar_chart(weights: pd.Series, title: str = "Portfolio Weights") -> g
         xaxis_tickformat=".0%",
         template="plotly_white",
         height=max(300, 35 * len(sorted_w)),
+        font=CHART_FONT,
     )
     return fig
 
@@ -307,5 +317,6 @@ def efficient_frontier_chart(
         xaxis_tickformat=".1%",
         yaxis_tickformat=".1%",
         template="plotly_white",
+        font=CHART_FONT,
     )
     return fig

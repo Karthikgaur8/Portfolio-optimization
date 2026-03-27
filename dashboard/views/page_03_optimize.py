@@ -36,7 +36,17 @@ OPTIMIZERS = {
 
 
 def render() -> None:
-    st.header("⚙️ Portfolio Optimization")
+    st.header("Portfolio Optimization")
+
+    st.markdown(
+        '<div style="background:#f0f2f6; padding:0.8rem 1rem; border-radius:6px; margin-bottom:1rem;">'
+        "Run an optimizer to compute optimal portfolio weights. Compare multiple strategies: "
+        "classical Markowitz, Risk Parity, Black-Litterman with signal-derived views, "
+        "Hierarchical Risk Parity, or the Regime-Aware switcher. View weight attribution "
+        "to see <b>WHY</b> each asset got its allocation."
+        "</div>",
+        unsafe_allow_html=True,
+    )
 
     prices = st.session_state.get("prices")
     if prices is None:
@@ -57,7 +67,7 @@ def render() -> None:
         transaction_cost_bps=10,
     )
 
-    if st.button("🚀 Run Optimizer", type="primary", key="p3_run"):
+    if st.button("Run Optimizer", type="primary", key="p3_run"):
         with st.spinner("Optimizing portfolio..."):
             returns = prices.pct_change().dropna()
 
@@ -68,8 +78,7 @@ def render() -> None:
 
             # Expected returns from latest composite signal
             expected_returns = composite_signal.iloc[-1] if not composite_signal.empty else pd.Series(0, index=prices.columns)
-            # Scale to reasonable expected return range
-            expected_returns = expected_returns * 0.10  # ±10% annual
+            expected_returns = expected_returns * 0.10  # +/-10% annual
 
             # Covariance
             cov_matrix = returns.cov() * 252
@@ -98,6 +107,8 @@ def render() -> None:
 
                 st.success("Optimization complete!")
 
+                st.divider()
+
                 # Weights bar chart
                 st.subheader("Optimal Weights")
                 fig = weights_bar_chart(result.weights, title=f"{opt_choice.replace('_', ' ').title()} Weights")
@@ -108,6 +119,8 @@ def render() -> None:
                 col_a.metric("Expected Return", f"{result.expected_return:.2%}")
                 col_b.metric("Expected Volatility", f"{result.expected_volatility:.2%}")
                 col_c.metric("Sharpe Ratio", f"{result.sharpe_ratio:.2f}")
+
+                st.divider()
 
                 # Weight attribution
                 st.subheader("Weight Attribution")
@@ -121,7 +134,6 @@ def render() -> None:
                 attr_df = attributor.attribute(result.weights, signal_values, composite.weights)
                 st.session_state["attribution"] = attr_df
 
-                # Color-code the attribution table
                 st.dataframe(
                     attr_df.style.format("{:.2%}").background_gradient(
                         cmap="RdYlGn", axis=None,
@@ -132,9 +144,12 @@ def render() -> None:
 
                 # Efficient frontier (Markowitz only)
                 if opt_choice == "markowitz":
+                    st.divider()
                     st.subheader("Efficient Frontier")
                     _plot_frontier(returns, cov_matrix, expected_returns, constraints,
                                    result.expected_volatility, result.expected_return)
+
+                st.divider()
 
                 # Benchmark comparison
                 st.subheader("Comparison to Benchmarks")
@@ -144,7 +159,7 @@ def render() -> None:
                     "Strategy": [opt_choice, "Equal Weight"],
                     "Exp. Return": [f"{result.expected_return:.2%}", f"{float(expected_returns.mean()):.2%}"],
                     "Exp. Vol": [f"{result.expected_volatility:.2%}", f"{float(np.sqrt(ew @ cov_matrix @ ew)):.2%}"],
-                    "Sharpe": [f"{result.sharpe_ratio:.2f}", "—"],
+                    "Sharpe": [f"{result.sharpe_ratio:.2f}", "---"],
                 }
                 st.table(pd.DataFrame(comp_data))
 
@@ -157,7 +172,6 @@ def render() -> None:
 def _plot_frontier(returns, cov_matrix, expected_returns, constraints, port_vol, port_ret):
     """Generate and display an efficient frontier."""
     try:
-        optimizer = MarkowitzOptimizer(risk_aversion=1.0)
         vols, rets = [], []
         for ra in np.linspace(0.1, 20, 30):
             opt = MarkowitzOptimizer(risk_aversion=ra)

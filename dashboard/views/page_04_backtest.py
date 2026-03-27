@@ -43,7 +43,16 @@ OPTIMIZERS = {
 
 
 def render() -> None:
-    st.header("📈 Backtest Results")
+    st.header("Backtest Results")
+
+    st.markdown(
+        '<div style="background:#f0f2f6; padding:0.8rem 1rem; border-radius:6px; margin-bottom:1rem;">'
+        "Walk-forward backtest: train on historical data, test on future data, slide forward — "
+        "no look-ahead bias. Compare KUBER strategies against naive benchmarks (equal weight, "
+        "60/40, buy-and-hold SPY) with proper transaction cost modeling."
+        "</div>",
+        unsafe_allow_html=True,
+    )
 
     prices = st.session_state.get("prices")
     if prices is None:
@@ -59,7 +68,7 @@ def render() -> None:
     with col3:
         lookback = st.number_input("Lookback (days)", 60, 504, 252, key="p4_lookback")
 
-    if st.button("🏃 Run Backtest", type="primary", key="p4_run"):
+    if st.button("Run Backtest", type="primary", key="p4_run"):
         _run_backtest(prices, opt_choice, rebalance, lookback)
 
     # Show cached results
@@ -72,7 +81,7 @@ def render() -> None:
 
 def _run_backtest(prices, opt_choice, rebalance, lookback):
     with st.spinner("Running walk-forward backtest... this may take a moment."):
-        start = st.session_state.get("start_date", "2020-01-01")
+        start = st.session_state.get("start_date", "2018-01-01")
         end = st.session_state.get("end_date", "2025-01-01")
 
         signals = [TSMOMSignal(), RSISignal(), RealizedVolSignal()]
@@ -116,7 +125,7 @@ def _display_results(result):
     for col, (label, val, pct) in zip(cols, metrics_display):
         col.metric(label, f"{val:.1%}" if pct else f"{val:.2f}")
 
-    st.markdown("---")
+    st.divider()
 
     # 1. Equity curve
     st.subheader("Equity Curves")
@@ -126,20 +135,28 @@ def _display_results(result):
     fig = equity_curve_chart(curves)
     st.plotly_chart(fig, use_container_width=True)
 
+    st.divider()
+
     # 2. Drawdown
     st.subheader("Drawdown")
     fig = drawdown_chart(result.portfolio_returns, title="Portfolio Drawdown")
     st.plotly_chart(fig, use_container_width=True)
+
+    st.divider()
 
     # 3. Rolling Sharpe
     st.subheader("Rolling 12-Month Sharpe Ratio")
     fig = rolling_sharpe_chart(result.portfolio_returns, window=252)
     st.plotly_chart(fig, use_container_width=True)
 
+    st.divider()
+
     # 4. Monthly returns heatmap
     st.subheader("Monthly Returns Heatmap")
     fig = monthly_returns_heatmap(result.portfolio_returns)
     st.plotly_chart(fig, use_container_width=True)
+
+    st.divider()
 
     # 5. Full metrics table
     st.subheader("Detailed Metrics Comparison")
@@ -147,17 +164,18 @@ def _display_results(result):
 
     # 6. Weights over time
     if result.portfolio_weights is not None and not result.portfolio_weights.empty:
+        st.divider()
         st.subheader("Weights Over Time")
         fig = weights_area_chart(result.portfolio_weights)
         st.plotly_chart(fig, use_container_width=True)
 
     # 7. Trade log / turnover
     if result.trade_log is not None and not result.trade_log.empty:
+        st.divider()
         st.subheader("Trade Log & Turnover")
         with st.expander("View Trade Log"):
             st.dataframe(result.trade_log.head(200), use_container_width=True)
 
-        # Turnover chart
         if "turnover" in result.trade_log.columns and "date" in result.trade_log.columns:
             turnover_by_date = result.trade_log.groupby("date")["turnover"].sum()
             if not turnover_by_date.empty:
@@ -173,6 +191,7 @@ def _display_results(result):
                     yaxis_title="Turnover",
                     yaxis_tickformat=".0%",
                     template="plotly_white",
+                    font=dict(family="Inter, sans-serif"),
                 )
                 st.plotly_chart(fig, use_container_width=True)
 

@@ -167,7 +167,7 @@ def main() -> None:
     # Risk alert
     alert = generator.generate_risk_alert(weights, current_regime, scenario_results)
     if alert:
-        print(f"\n⚠ {alert}")
+        print(f"\n[WARNING] {alert}")
 
 
 if __name__ == "__main__":

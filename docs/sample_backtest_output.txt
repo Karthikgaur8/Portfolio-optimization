@@ -1,0 +1,798 @@
+18:11:55 [INFO] kuber.data.universe: Loaded universe 'balanced_etf' with 10 tickers
+18:11:55 [INFO] kuber.utils.config: Base config loaded from C:\PyProject\Portfolio optimization\config\default.yaml
+18:11:55 [INFO] kuber.data.cache: ParquetCache initialised at C:\PyProject\Portfolio optimization\.cache
+18:11:55 [INFO] kuber.data.price_loader: Loaded prices from cache (BND_EEM_EFA_GLD_HYG_IWM_QQQ_SPY_TLT_VTI_2020-01-01_2025-01-01_daily)
+18:11:55 [INFO] kuber.data.cache: ParquetCache initialised at C:\PyProject\Portfolio optimization\.cache
+18:11:55 [WARNING] kuber.data.macro_loader: FRED_API_KEY not set — returning empty DataFrame. Set it in .env to fetch macro data.
+18:11:55 [INFO] kuber.regime.detector: RegimeDetector initialized with method='hmm'.
+18:11:55 [INFO] kuber.optimizer.regime_aware: RegimeAwareOptimizer initialized: {'bull': 'BlackLittermanOptimizer', 'bear': 'RiskParityOptimizer', 'sideways': 'HRPOptimizer'}
+18:11:56 [INFO] kuber.backtest.engine: Backtest: 1305 trading days, 49 rebalances, lookback=252
+18:11:56 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:56 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:56 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:56 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:56 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:56 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:56 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:56 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:56 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:56 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:56 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:56 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:56 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0002595670480477342, 'volatility': 0.009947859239983842}, 'neutral': {'mean_return': 0.00031077935534532447, 'volatility': 0.00995282035115171}, 'bull': {'mean_return': 0.0003826205598116452, 'volatility': 31.622776601683793}}
+18:11:56 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:11:56 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:56 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:56 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:56 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:56 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:56 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:56 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:56 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:56 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:56 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:56 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:56 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:56 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:56 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00023124484024295328, 'volatility': 0.009975638853305562}, 'neutral': {'mean_return': 0.0003073229442344379, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0003180848070015445, 'volatility': 0.00990371959909899}}
+18:11:56 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '0'; using fallback 'sideways'.
+18:11:56 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:56 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:56 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:56 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:56 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:56 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:56 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:56 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:56 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:56 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:56 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:57 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:57 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:57 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00014977684804716644, 'volatility': 0.010004520353237468}, 'neutral': {'mean_return': 0.00023792824175945145, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0003732762551205271, 'volatility': 0.009921909107044758}}
+18:11:57 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '0'; using fallback 'sideways'.
+18:11:57 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:57 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:57 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:57 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:57 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:57 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:57 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:57 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:57 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:57 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00027245445233234713, 'volatility': 0.009944465335538874}, 'neutral': {'mean_return': 0.00041528067467724503, 'volatility': 0.00994884232281178}, 'bull': {'mean_return': 0.00047437193238380776, 'volatility': 31.622776601683793}}
+18:11:57 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:11:57 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:57 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:57 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:57 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:57 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:57 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:57 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:57 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:57 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:57 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0003143025128509096, 'volatility': 0.009902438937388227}, 'neutral': {'mean_return': 0.0004237376820137912, 'volatility': 0.009914945344724296}, 'bull': {'mean_return': 0.00047149043030595886, 'volatility': 31.622776601683793}}
+18:11:57 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:11:57 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:57 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:57 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:57 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:57 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:57 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:57 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:57 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:57 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:57 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0003060621997041604, 'volatility': 0.00981168528630531}, 'neutral': {'mean_return': 0.00038324946387116295, 'volatility': 0.009960001979764444}, 'bull': {'mean_return': 0.0004164859975333388, 'volatility': 31.622776601683793}}
+18:11:57 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:11:57 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:57 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:57 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:57 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:57 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:57 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:57 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:57 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:57 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:57 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00023565823088447473, 'volatility': 0.009921288798470129}, 'neutral': {'mean_return': 0.00023919454891162918, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.00024871119926001407, 'volatility': 0.009797837400613685}}
+18:11:57 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '0'; using fallback 'sideways'.
+18:11:57 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:57 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:57 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:57 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:57 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:57 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:57 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:57 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:58 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='full'.
+18:11:58 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': -0.0010047542214526427, 'volatility': 6.707743585583524e+23}, 'neutral': {'mean_return': 0.00030471923572291933, 'volatility': 0.010005810691852614}, 'bull': {'mean_return': 0.0003767526702670086, 'volatility': 0.00978643948534317}}
+18:11:58 [WARNING] kuber.backtest.engine: Regime detection failed at 2021-08-02 00:00:00: 'covars' must be symmetric, positive-definite
+18:11:58 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:58 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:58 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:58 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:58 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:58 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:58 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:58 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:58 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:58 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00040178500024672575, 'volatility': 0.009999854042307375}, 'neutral': {'mean_return': 0.0004146751605131017, 'volatility': 0.009854153063518233}, 'bull': {'mean_return': 0.0004389388383233776, 'volatility': 31.622776601683793}}
+18:11:58 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '0'; using fallback 'sideways'.
+18:11:58 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:58 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:58 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:58 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:58 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:58 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:58 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:58 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='full'.
+18:11:58 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': -0.0005784813548277994, 'volatility': 7159984932518.005}, 'neutral': {'mean_return': 0.00016701924543225034, 'volatility': 0.010075770572720348}, 'bull': {'mean_return': 0.0005810105285637504, 'volatility': 0.009759527238545961}}
+18:11:58 [WARNING] kuber.backtest.engine: Regime detection failed at 2021-10-01 00:00:00: 'covars' must be symmetric, positive-definite
+18:11:58 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:58 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:58 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:58 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:58 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:58 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:58 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:58 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:58 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:58 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00033369327757290507, 'volatility': 0.00984243320981661}, 'neutral': {'mean_return': 0.0003366380534399091, 'volatility': 0.009881027887800074}, 'bull': {'mean_return': 0.0003518242734032141, 'volatility': 31.622776601683793}}
+18:11:58 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:11:58 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:58 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:58 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:58 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:58 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:58 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:58 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:58 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:58 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:58 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00037166535317002103, 'volatility': 0.009880495605887484}, 'neutral': {'mean_return': 0.0003720321230630024, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.00038655781664571735, 'volatility': 0.00987397572275}}
+18:11:58 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '0'; using fallback 'sideways'.
+18:11:58 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:58 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:58 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:58 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:58 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:58 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:58 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:58 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='full'.
+18:11:58 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00031315396327009367, 'volatility': 0.010081345214831217}, 'neutral': {'mean_return': 0.0004482346897738021, 'volatility': 44919511.506874345}, 'bull': {'mean_return': 0.0005368376423115043, 'volatility': 0.009772862367758922}}
+18:11:58 [WARNING] kuber.backtest.engine: Regime detection failed at 2022-01-03 00:00:00: 'covars' must be symmetric, positive-definite
+18:11:58 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:58 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:58 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:58 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:58 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:58 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:58 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:58 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:59 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:59 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:59 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00042461930447338823, 'volatility': 0.009967796426616472}, 'neutral': {'mean_return': 0.0005241784752108076, 'volatility': 0.009918045558776543}, 'bull': {'mean_return': 0.0005299185026081416, 'volatility': 31.622776601683793}}
+18:11:59 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:11:59 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:59 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:59 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:59 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:59 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:59 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:59 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:59 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='full'.
+18:11:59 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 9.598932329494514e-05, 'volatility': 0.010075738218921012}, 'neutral': {'mean_return': 0.000541632789933098, 'volatility': 9079253.327695375}, 'bull': {'mean_return': 0.0006006744773192922, 'volatility': 0.009848822304422761}}
+18:11:59 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:11:59 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:59 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:59 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:59 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:59 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:59 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:59 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:59 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='full'.
+18:11:59 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 1.1634390348714785e-05, 'volatility': 0.010110794241695361}, 'neutral': {'mean_return': 1.2373635878933106e-05, 'volatility': 4838.859182996892}, 'bull': {'mean_return': 0.0006883546710991276, 'volatility': 0.00981513477229039}}
+18:11:59 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '0'; using fallback 'sideways'.
+18:11:59 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:59 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:59 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:59 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:59 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:59 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:59 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:59 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='full'.
+18:11:59 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0002818990639493794, 'volatility': 0.0100546223219188}, 'neutral': {'mean_return': 0.0006057965382356379, 'volatility': 0.009875009766805262}, 'bull': {'mean_return': 0.0011588063124335461, 'volatility': 4494.300016509386}}
+18:11:59 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:11:59 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:59 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:59 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:59 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:59 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:59 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:59 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:59 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:59 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:59 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0004823336314126539, 'volatility': 0.009959389584174444}, 'neutral': {'mean_return': 0.0005087137670481434, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0005314064588853797, 'volatility': 0.009924448679831378}}
+18:11:59 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:11:59 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:59 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:59 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:59 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:59 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:59 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:59 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:11:59 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:11:59 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:11:59 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0005018498966318924, 'volatility': 0.00986665418200673}, 'neutral': {'mean_return': 0.0006070375508795778, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0006383311035332871, 'volatility': 0.009866184522709258}}
+18:11:59 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:11:59 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:11:59 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:11:59 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:11:59 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:11:59 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:11:59 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:11:59 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:11:59 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:00 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:00 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:00 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0005951793055887915, 'volatility': 31.622776601683793}, 'neutral': {'mean_return': 0.0006100851578558475, 'volatility': 0.009904938139732242}, 'bull': {'mean_return': 0.0006610821164383778, 'volatility': 0.009795673484346325}}
+18:12:00 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:00 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:00 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:00 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:00 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:00 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:00 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:00 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:00 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:00 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:00 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0006279149725549815, 'volatility': 0.009836256845653158}, 'neutral': {'mean_return': 0.0006415742573808779, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0008179696559587158, 'volatility': 0.009810963716936846}}
+18:12:00 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '0'; using fallback 'sideways'.
+18:12:00 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:00 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:00 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:00 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:00 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:00 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:00 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:00 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:00 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:00 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0005689838378606165, 'volatility': 0.00981334032396193}, 'neutral': {'mean_return': 0.0005689928319276071, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0006671122233818469, 'volatility': 0.009798855217880261}}
+18:12:00 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '0'; using fallback 'sideways'.
+18:12:00 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:00 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:00 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:00 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:00 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:00 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:00 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:00 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:00 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:00 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0006183399322034748, 'volatility': 0.009764692336933781}, 'neutral': {'mean_return': 0.0006322049677315757, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0006486023446246396, 'volatility': 0.009808610860864797}}
+18:12:00 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:12:00 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:00 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:00 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:00 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:00 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:00 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:00 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:00 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:00 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:00 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0005986629877963758, 'volatility': 0.009755381263629605}, 'neutral': {'mean_return': 0.0006704298300867728, 'volatility': 0.009769393430199495}, 'bull': {'mean_return': 0.000681969445242588, 'volatility': 31.622776601683793}}
+18:12:00 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:00 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:00 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:00 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:00 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:00 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:00 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:00 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:00 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:01 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:01 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:01 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00027215330363587374, 'volatility': 0.009800129914874252}, 'neutral': {'mean_return': 0.00056344740556231, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0006140792613787891, 'volatility': 0.009803785055811686}}
+18:12:01 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:12:01 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:01 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:01 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:01 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:01 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:01 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:01 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:01 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:01 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:01 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0003873469103043302, 'volatility': 0.009789133696556271}, 'neutral': {'mean_return': 0.0005039273781930849, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0005654029021755525, 'volatility': 0.009827169791316207}}
+18:12:01 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:12:01 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:01 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:01 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:01 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:01 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:01 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:01 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:01 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:01 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:01 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0003301503764011756, 'volatility': 0.009785806235036661}, 'neutral': {'mean_return': 0.000550917637845723, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0006274194210203223, 'volatility': 0.009830406895677055}}
+18:12:01 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:12:01 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:01 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:01 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:01 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:01 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:01 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:01 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:01 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:01 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:01 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00026519182174211935, 'volatility': 31.622776601683793}, 'neutral': {'mean_return': 0.0002915866178230664, 'volatility': 0.009865603762467434}, 'bull': {'mean_return': 0.0006206195398865282, 'volatility': 0.009789314296990453}}
+18:12:01 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:01 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:01 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:01 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:01 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:01 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:01 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:01 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:01 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:01 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:01 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0002990850800467827, 'volatility': 31.622776601683793}, 'neutral': {'mean_return': 0.00031099927523774856, 'volatility': 0.009896978557621797}, 'bull': {'mean_return': 0.0006394698764353396, 'volatility': 0.009795879564883847}}
+18:12:01 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:01 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:01 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:01 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:01 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:01 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:01 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:01 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:01 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:02 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='full'.
+18:12:02 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': -0.0013640299181181845, 'volatility': 7209486358869.239}, 'neutral': {'mean_return': 0.00019483905772447712, 'volatility': 0.009967767946334026}, 'bull': {'mean_return': 0.0008445763812510525, 'volatility': 0.009773807009272984}}
+18:12:02 [WARNING] kuber.backtest.engine: Regime detection failed at 2023-06-01 00:00:00: 'covars' must be symmetric, positive-definite
+18:12:02 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:02 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:02 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:02 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:02 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:02 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:02 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:02 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:02 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:02 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00045388582816635543, 'volatility': 0.009939367785939898}, 'neutral': {'mean_return': 0.0007301350381543223, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0007442329202942511, 'volatility': 0.009871658618841449}}
+18:12:02 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:12:02 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:02 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:02 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:02 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:02 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:02 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:02 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:02 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='full'.
+18:12:02 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': -4.969503907696161e-05, 'volatility': 1697438.2600125328}, 'neutral': {'mean_return': 0.0001097144383269607, 'volatility': 0.010072166751308516}, 'bull': {'mean_return': 0.0007282428931343533, 'volatility': 0.009797782351064146}}
+18:12:02 [WARNING] kuber.backtest.engine: Regime detection failed at 2023-08-01 00:00:00: 'covars' must be symmetric, positive-definite
+18:12:02 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:02 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:02 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:02 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:02 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:02 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:02 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:02 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='full'.
+18:12:02 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': -7.727735055266555e-05, 'volatility': 0.009945614560157068}, 'neutral': {'mean_return': 0.0007250148624262453, 'volatility': 0.0098682579572669}, 'bull': {'mean_return': 0.002912802675088321, 'volatility': 1255641.8654761428}}
+18:12:02 [WARNING] kuber.backtest.engine: Regime detection failed at 2023-09-01 00:00:00: 'covars' must be symmetric, positive-definite
+18:12:02 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:02 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:02 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:02 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:02 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:02 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:02 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:02 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:02 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:02 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00014864772750956167, 'volatility': 31.622776601683793}, 'neutral': {'mean_return': 0.00018787796720576798, 'volatility': 0.009983677774020816}, 'bull': {'mean_return': 0.0005151169144291984, 'volatility': 0.009892400767912373}}
+18:12:02 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:02 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:02 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:02 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:02 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:02 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:02 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:02 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:02 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:02 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:02 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00013349310819703956, 'volatility': 31.622776601683793}, 'neutral': {'mean_return': 0.00016730368028188214, 'volatility': 0.009984967983140598}, 'bull': {'mean_return': 0.00039186673911109166, 'volatility': 0.009891702987113537}}
+18:12:02 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:02 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:02 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:02 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:02 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:02 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:02 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:02 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:02 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:02 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:03 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:03 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.000487407524970938, 'volatility': 31.622776601683793}, 'neutral': {'mean_return': 0.0005186485127306097, 'volatility': 0.009913821258450426}, 'bull': {'mean_return': 0.00058981155744135, 'volatility': 0.009917403921014898}}
+18:12:03 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:03 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:03 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:03 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:03 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:03 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:03 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:03 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:03 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:03 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:03 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0004806815638784333, 'volatility': 0.009866004843723769}, 'neutral': {'mean_return': 0.000743051794720061, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.000745585434581169, 'volatility': 0.009926478576348348}}
+18:12:03 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:12:03 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:03 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:03 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:03 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:03 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:03 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:03 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:03 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:03 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:03 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0003394829536819543, 'volatility': 31.622776601683793}, 'neutral': {'mean_return': 0.00037313673454775486, 'volatility': 0.00991563183800163}, 'bull': {'mean_return': 0.0005776329525388967, 'volatility': 0.00991599614235685}}
+18:12:03 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:03 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:03 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:03 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:03 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:03 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:03 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:03 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:03 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:03 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:03 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00041118415123008335, 'volatility': 0.009850720401000653}, 'neutral': {'mean_return': 0.0004931108519004576, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0005089403543145225, 'volatility': 0.009929318603891487}}
+18:12:03 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:12:03 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:03 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:03 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:03 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:03 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:03 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:03 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:03 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:03 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:03 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0003695550275591654, 'volatility': 31.622776601683793}, 'neutral': {'mean_return': 0.0003751821440046008, 'volatility': 0.009869855461665052}, 'bull': {'mean_return': 0.000398396996192906, 'volatility': 0.009895014037480691}}
+18:12:03 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:12:03 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:03 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:03 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:03 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:03 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:03 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:03 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:03 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:04 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='full'.
+18:12:04 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 2.0776995796406605e-05, 'volatility': 1471281.6080380876}, 'neutral': {'mean_return': 0.00029576344133739783, 'volatility': 0.009871790626490995}, 'bull': {'mean_return': 0.0002984063617051048, 'volatility': 0.009865250290562538}}
+18:12:04 [WARNING] kuber.backtest.engine: Regime detection failed at 2024-05-01 00:00:00: 'covars' must be symmetric, positive-definite
+18:12:04 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:04 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:04 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:04 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:04 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:04 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:04 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:04 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:04 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:04 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00014169044314973038, 'volatility': 0.009796559624406873}, 'neutral': {'mean_return': 0.00029017340077814257, 'volatility': 0.00984722096200573}, 'bull': {'mean_return': 0.00029505513560058687, 'volatility': 31.622776601683793}}
+18:12:04 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:04 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:04 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:04 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:04 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:04 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:04 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:04 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:04 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:04 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:04 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00013344333948570744, 'volatility': 0.009788830521607698}, 'neutral': {'mean_return': 0.0005130145031258821, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.0005141168105537828, 'volatility': 0.00982689079596937}}
+18:12:04 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:12:04 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:04 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:04 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:04 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:04 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:04 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:04 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:04 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:04 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:04 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.0001515227195668591, 'volatility': 31.622776601683793}, 'neutral': {'mean_return': 0.0001745687779691973, 'volatility': 0.009845938020729693}, 'bull': {'mean_return': 0.0005966809438901689, 'volatility': 0.009800341937957003}}
+18:12:04 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:04 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:04 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:04 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:04 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:04 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:04 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:04 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:04 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:04 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:04 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00013710258268765242, 'volatility': 31.622776601683793}, 'neutral': {'mean_return': 0.0001503980435513948, 'volatility': 0.009837937406156086}, 'bull': {'mean_return': 0.0005537876125599367, 'volatility': 0.009804286078285243}}
+18:12:04 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:04 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:04 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:04 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:04 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:04 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:04 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:04 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:04 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:04 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:05 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:05 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00011877658377977038, 'volatility': 0.009805560815456109}, 'neutral': {'mean_return': 0.00039327176769812317, 'volatility': 31.622776601683793}, 'bull': {'mean_return': 0.00041681322972715156, 'volatility': 0.00983981337279915}}
+18:12:05 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '2'; using fallback 'sideways'.
+18:12:05 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:05 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:05 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:05 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:05 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:05 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:05 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:05 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:05 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:05 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:05 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:05 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:05 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:05 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00021791949158659347, 'volatility': 31.622776601683793}, 'neutral': {'mean_return': 0.0002736167313562012, 'volatility': 0.009821087146544654}, 'bull': {'mean_return': 0.0002745098259709968, 'volatility': 0.009756480259139515}}
+18:12:05 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:05 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:05 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:05 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:05 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:05 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:05 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:05 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:05 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:05 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:05 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:05 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:05 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='full'.
+18:12:05 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 5.709474684795512e-05, 'volatility': 0.009806642920069587}, 'neutral': {'mean_return': 0.00029194148684396693, 'volatility': 2658809.373404687}, 'bull': {'mean_return': 0.0003575893694281101, 'volatility': 0.009800500217799258}}
+18:12:05 [WARNING] kuber.backtest.engine: Regime detection failed at 2024-12-02 00:00:00: 'covars' must be symmetric, positive-definite
+18:12:05 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+18:12:05 [INFO] kuber.signals.composite: CompositeSignal initialized with 3 signals: TSMOM(0.33), RSI(0.33), RealizedVol(0.33)
+18:12:05 [INFO] kuber.signals.composite: Generating composite signal from 3 sub-signals.
+18:12:05 [INFO] kuber.signals.momentum: Generating TSMOM signal (long=252, short=21).
+18:12:05 [INFO] kuber.signals.momentum: TSMOM signal generated: 253 rows, 10 tickers.
+18:12:05 [INFO] kuber.signals.mean_reversion: Generating RSI signal (period=14).
+18:12:05 [INFO] kuber.signals.mean_reversion: RSI signal generated: 253 rows, 10 tickers.
+18:12:05 [INFO] kuber.signals.volatility: Generating RealizedVol signal (window=21).
+18:12:05 [INFO] kuber.signals.volatility: RealizedVol signal generated: 253 rows, 10 tickers.
+18:12:05 [INFO] kuber.signals.composite: Composite signal generated: 253 rows, 10 tickers.
+18:12:05 [INFO] kuber.regime.hmm: Fitting HMM regime detector with 3 regimes.
+18:12:05 [WARNING] kuber.regime.hmm: HMM fit with covariance_type='full' failed: 'covars' must be symmetric, positive-definite
+18:12:05 [INFO] kuber.regime.hmm: HMM fitted with covariance_type='diag'.
+18:12:05 [INFO] kuber.regime.hmm: HMM fitting complete. Regime params: {'bear': {'mean_return': 0.00014250264879976646, 'volatility': 0.009750539042412737}, 'neutral': {'mean_return': 0.0002281514647089381, 'volatility': 0.009827534558495745}, 'bull': {'mean_return': 0.000237538928619771, 'volatility': 31.622776601683793}}
+18:12:05 [WARNING] kuber.optimizer.regime_aware: No optimizer for regime '1'; using fallback 'sideways'.
+18:12:05 [INFO] kuber.optimizer.regime_aware: Regime='sideways' -> delegating to HRPOptimizer.
+============================================================
+  KUBER Backtest Runner
+============================================================
+  Universe:   balanced_etf
+  Period:     2020-01-01 -> 2025-01-01
+  Optimizer:  regime_aware
+  Rebalance:  monthly
+  Lookback:   252 days
+============================================================
+
+[1/5] Universe 'Balanced ETF': ['SPY', 'QQQ', 'BND', 'GLD', 'VTI', 'IWM', 'EFA', 'EEM', 'TLT', 'HYG']
+
+[2/5] Loading price data...
+  Loaded 1306 days × 10 tickers
+
+[3/5] Loading macro data...
+  Macro data unavailable (no FRED API key?). Proceeding without.
+
+[4/5] Signals: ['TSMOM', 'RSI', 'RealizedVol']
+  Regime detector: HMM (3 states)
+
+[5/5] Running backtest with RegimeAwareOptimizer...
+
+============================================================
+KUBER Backtest Summary
+============================================================
+  annualized_return        :     0.0403
+  annualized_volatility    :     0.0331
+  sharpe_ratio             :     1.2180
+  sortino_ratio            :     1.9898
+  max_drawdown             :     0.0357
+  calmar_ratio             :     1.1290
+  win_rate                 :     0.5249
+  tail_ratio               :     1.0514
+  average_turnover         :     0.0755
+  information_ratio        :    -1.6645
+
+  Rebalance count: 49
+  Date range: 2021-01-01 -> 2025-01-01
+============================================================
+
+Benchmark Comparison:
+  Strategy              Ann. Return   Ann. Vol   Sharpe   Max DD
+  ----------------------------------------------------------
+  KUBER                      0.0403     0.0331   1.2180   0.0357
+  equal_weight               0.0954     0.0533   1.7887   0.0446
+  spy_buy_hold               0.2910     0.1794   1.6220   0.2070
+  sixty_forty                0.1728     0.1095   1.5775   0.1239
+  legacy_script              0.1160     0.0751   1.5438   0.0665
+
+================================================================================
+  METRICS COMPARISON TABLE
+================================================================================
+  Metric                              KUBER    equal_weight    spy_buy_hold     sixty_forty   legacy_script
+  ---------------------------------------------------------------------------------------------------------
+  annualized_return                  4.03%          9.54%         29.10%         17.28%         11.60%
+  annualized_volatility              3.31%          5.33%         17.94%         10.95%          7.51%
+  sharpe_ratio                       1.2180          1.7887          1.6220          1.5775          1.5438
+  sortino_ratio                      1.9898          3.1147          2.8349          2.7537          2.7243
+  max_drawdown                       3.57%          4.46%         20.70%         12.39%          6.65%
+  calmar_ratio                       1.1290          2.1376          1.4053          1.3943          1.7446
+  win_rate                           0.5249          0.5487          0.5402          0.5456          0.5295
+================================================================================
+
+Results saved to: results/regime_aware_backtest.json
